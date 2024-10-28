@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    parameters {
+        string(defaultValue: 'default string', description: 'This is a string parameter', name: 'myString')
+    }
+    stages {
+        stage('demo') {
+            steps {
+                echo "string is: ${params.myString}"
+            }
+        }
+    }
+}

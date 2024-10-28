@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    parameters {
+        booleanParam(defaultValue: false, description: 'This is a boolean parameter', name: 'myBoolean')
+    }
+    stages {
+        stage('demo') {
+            steps {
+                script {
+                    if (params.myBoolean) {
+                        echo 'This is stage 1 github'
+                    } else {
+                        echo 'This is stage 2 github'
+                    }
+                }
+            }
+
+        }
+    }
+}
